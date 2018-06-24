@@ -1,0 +1,52 @@
+﻿<Window x:Class="Cecs475.BoardGames.Chess.WpfViewNew.PawnPromotionDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cecs475.BoardGames.Chess.WpfViewNew"
+             mc:Ignorable="d"
+             Width="500" FontSize="16" WindowStyle="None"
+                SizeToContent="Height" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Image x:Key="WR" Source="/Cecs475.BoardGames.Chess.WpfViewNew;component/Resources/WhiteRook.png" />
+        <Image x:Key="WB" Source="/Cecs475.BoardGames.Chess.WpfViewNew;component/Resources/WhiteBishop.png" />
+        <Image x:Key="WK" Source="/Cecs475.BoardGames.Chess.WpfViewNew;component/Resources/WhiteKnight.png" />
+        <Image x:Key="WQ" Source="/Cecs475.BoardGames.Chess.WpfViewNew;component/Resources/WhiteQueen.png" />
+        <Image x:Key="BR" Source="/Cecs475.BoardGames.Chess.WpfViewNew;component/Resources/BlackRook.png" />
+        <Image x:Key="BB" Source="/Cecs475.BoardGames.Chess.WpfViewNew;component/Resources/BlackBishop.png" />
+        <Image x:Key="BK" Source="/Cecs475.BoardGames.Chess.WpfViewNew;component/Resources/BlackKnight.png" />
+        <Image x:Key="BQ" Source="/Cecs475.BoardGames.Chess.WpfViewNew;component/Resources/BlackQueen.png" />
+    </Window.Resources>
+    <Grid Height="150">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*" />
+            <RowDefinition Height="58*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="5,0,5,5"/>
+            </Style>
+        </Grid.Resources>
+        
+        <Label Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Content="Promote pawn to:" ClipToBounds="True" />
+
+        <Button Grid.Column ="0" Grid.Row="1" x:Name="Rook" Click="ButtonBase_OnClick" >
+            <DynamicResource ResourceKey="WR"/>
+        </Button>
+        <Button Grid.Column ="1" Grid.Row="1" x:Name="Knight" Click="ButtonBase_OnClick">
+            <DynamicResource ResourceKey="WK"/>
+        </Button>
+        <Button Grid.Column ="2" Grid.Row="1" x:Name="Bishop" Click="ButtonBase_OnClick" >
+            <DynamicResource ResourceKey="WB"/>
+        </Button>
+        <Button Grid.Column ="3" Grid.Row="1" x:Name="Queen" Click="ButtonBase_OnClick" >
+            <DynamicResource ResourceKey="WQ"/>
+        </Button>
+    </Grid>
+</Window>
