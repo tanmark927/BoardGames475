@@ -1,0 +1,43 @@
+﻿<Window x:Class="Cecs475.BoardGames.WpfApp.GameChoiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cecs475.BoardGames.WpfApp"
+        xmlns:view="clr-namespace:Cecs475.BoardGames.WpfView;assembly=Cecs475.BoardGames.WpfView"
+        mc:Ignorable="d"
+        Title="Let's play a game!" Width="300" FontSize="16"
+        SizeToContent="Height" WindowStartupLocation="CenterScreen">
+    <!--Project 3 pt. 1 Exclusive-->
+    <Window.Resources>
+        <!-- This array contains all the game types known by the application -->
+    <x:Array x:Key="GameTypes" Type="{x:Type view:IWpfGameFactory}">
+        <!--<othello:OthelloGameFactory/>
+        <tictactoe:TicTacToeGameFactory/>
+        <chess:ChessGameFactory/>-->
+    </x:Array>
+    </Window.Resources>
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="5,0,5,5"/>
+            </Style>
+        </StackPanel.Resources>
+        <Label>Choose a game to play:</Label>
+        <!-- Bind this ItemsControl to the array of known game types -->
+        <ItemsControl x:Name="GamesList" ItemsSource="{DynamicResource GameTypes}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Click="Button_Click" Content="{Binding GameName, Mode=OneTime}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <StackPanel>
+            <Label>Choose an opponent:</Label>
+            <WrapPanel Margin="5,0,0,5">
+                <RadioButton x:Name="mHumanBtn" IsChecked="True" VerticalContentAlignment="Center">Human</RadioButton>
+                <RadioButton Margin="10,0,0,0" VerticalContentAlignment="Center">Computer AI</RadioButton>
+            </WrapPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>
